@@ -1,2 +1,2 @@
 # goodpic
-HD wallpapers app for android phones.
+HD+ wallpapers app for android phones.
