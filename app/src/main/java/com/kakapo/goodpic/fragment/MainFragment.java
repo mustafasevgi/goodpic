@@ -3,22 +3,21 @@ package com.kakapo.goodpic.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.kakapo.goodpic.Adapter.MainRecyclerAdapter;
+import com.kakapo.goodpic.Adapter.MainPagerAdapter;
 import com.kakapo.goodpic.R;
 import com.kakapo.goodpic.activity.BaseActivity;
+import com.kakapo.goodpic.activity.MainActivity;
 
 /**
  * Created by mustafasevgi on 12/02/16.
  */
 public class MainFragment extends BaseFragment {
-   public static final String         TAG = MainFragment.class.getSimpleName();
-   private RecyclerView               recyclerView;
-   private StaggeredGridLayoutManager manager;
-   private BaseActivity               activity;
+   public static final String TAG = MainFragment.class.getSimpleName();
+   private BaseActivity       activity;
+   private ViewPager          viewPager;
 
    @Override
    public int getLayoutResourceId() {
@@ -36,10 +35,10 @@ public class MainFragment extends BaseFragment {
    @Override
    public void onViewCreated(View view, Bundle savedInstanceState) {
       super.onViewCreated(view, savedInstanceState);
-      recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-      manager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
-      recyclerView.setLayoutManager(manager);
-      MainRecyclerAdapter adapter = new MainRecyclerAdapter(activity);
-      recyclerView.setAdapter(adapter);
+      viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+      MainPagerAdapter adapter = new MainPagerAdapter(getChildFragmentManager(), activity);
+      viewPager.setAdapter(adapter);
+      if (activity instanceof MainActivity)
+         ((MainActivity) activity).tabs.setupWithViewPager(viewPager);
    }
 }

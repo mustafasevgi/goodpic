@@ -5,4 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string-array name="tab_titles">
+        <item>POPULER</item>
+        <item>YENI EKLENENLER</item>
+        <item>EDITORUN TAVSIYESI</item>
+    </string-array>
 </resources>

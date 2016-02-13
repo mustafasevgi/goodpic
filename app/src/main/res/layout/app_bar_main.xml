@@ -43,8 +43,14 @@
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/textsize_20" />
             </LinearLayout>
-        </android.support.v7.widget.Toolbar>
 
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />

@@ -1,4 +1,4 @@
-package com.kakapo.goodpic;
+package com.kakapo.goodpic.utils;
 
 import com.kakapo.goodpic.activity.BaseActivity;
 
