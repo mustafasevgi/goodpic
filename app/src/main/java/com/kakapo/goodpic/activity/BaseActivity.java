@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ import com.kakapo.goodpic.fragment.BaseFragment;
 /**
  * Created by mustafasevgi on 12/02/16.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
    public static final int TOOGLE_BACK = 0;
    public static final int TOOGLE_MENU = 1;
    public Toolbar          toolbar;
@@ -39,6 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
          toolbar = getToolbar();
          toolbarToggle = (ImageView) toolbar.findViewById(toolbar_toggle);
          toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+         toolbarToggle.setOnClickListener(this);
       }
    }
 
@@ -64,6 +66,14 @@ public abstract class BaseActivity extends AppCompatActivity {
       }
       if (toolbarTitle != null) {
          toolbarTitle.setText(title);
+      }
+   }
+
+   @Override
+   public void onClick(View view) {
+      switch (view.getId()) {
+         case R.id.toolbar_toggle :
+            break;
       }
    }
 }
