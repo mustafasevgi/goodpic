@@ -18,8 +18,8 @@ import com.kakapo.goodpic.fragment.BaseFragment;
  * Created by mustafasevgi on 12/02/16.
  */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
-   public static final int TOOGLE_BACK = 0;
-   public static final int TOOGLE_MENU = 1;
+   public static final int TOGGLE_BACK = 0;
+   public static final int TOGGLE_MENU = 1;
    public Toolbar          toolbar;
    public ImageView        toolbarToggle;
    public TextView         toolbarTitle;
@@ -28,6 +28,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
    public abstract int getLayoutResourceId();
 
    public abstract Toolbar getToolbar();
+
+   public abstract int getToggleType();
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +58,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
    public void setUpToolbar(int toggleType, String title) {
       if (toolbarToggle != null) {
          switch (toggleType) {
-            case TOOGLE_BACK :
+            case TOGGLE_BACK :
                toolbarToggle.setImageResource(R.drawable.ic_arrow_back);
                break;
-            case TOOGLE_MENU :
+            case TOGGLE_MENU :
                toolbarToggle.setImageResource(R.drawable.ic_menu);
                break;
          }
@@ -73,6 +75,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
    public void onClick(View view) {
       switch (view.getId()) {
          case R.id.toolbar_toggle :
+            switch (getToggleType()) {
+               case TOGGLE_BACK :
+                  onBackPressed();
+                  break;
+               case TOGGLE_MENU :
+                  if (this instanceof MainActivity)
+                     ((MainActivity) this).openDrawer();
+                  break;
+            }
             break;
       }
    }

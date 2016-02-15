@@ -6,7 +6,8 @@
     <dimen name="halfsize">8dp</dimen>
     <dimen name="fullsize">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="toolbar_height">?actionBarSize</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_bottom_padding">0dp</dimen>
 
     <dimen name="statusbar_height">0dp</dimen>
     <dimen name="toolbar_button_size">40dp</dimen>

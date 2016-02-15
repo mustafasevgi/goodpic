@@ -32,8 +32,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
    }
 
    @Override
+   public int getToggleType() {
+      return TOGGLE_MENU;
+   }
+
+   @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
+
       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
       fab.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -50,7 +56,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                                                                R.string.navigation_drawer_close);
       drawer.setDrawerListener(toggle);
       // toggle.syncState();
-      setUpToolbar(TOOGLE_MENU, getString(R.string.app_name));
+      setUpToolbar(TOGGLE_MENU, getString(R.string.app_name));
       NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
       navigationView.setNavigationItemSelectedListener(this);
       if (savedInstanceState == null) {
@@ -68,10 +74,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
       }
    }
 
+   public void openDrawer() {
+      if (!drawer.isDrawerOpen(GravityCompat.START)) {
+         drawer.openDrawer(GravityCompat.START);
+      }
+   }
+
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
       // Inflate the menu; this adds items to the action bar if it is present.
-      getMenuInflater().inflate(R.menu.main, menu);
+      // getMenuInflater().inflate(R.menu.main, menu);
       return true;
    }
 
@@ -96,24 +108,24 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
       // Handle navigation view item clicks here.
       int id = item.getItemId();
 
-      if (id == R.id.nav_camera) {
-         // Handle the camera action
-      }
-      else if (id == R.id.nav_gallery) {
-
-      }
-      else if (id == R.id.nav_slideshow) {
-
-      }
-      else if (id == R.id.nav_manage) {
-
-      }
-      else if (id == R.id.nav_share) {
-
-      }
-      else if (id == R.id.nav_send) {
-
-      }
+      // if (id == R.id.nav_camera) {
+      // Handle the camera action
+      // }
+      // else if (id == R.id.nav_gallery) {
+      //
+      // }
+      // else if (id == R.id.nav_slideshow) {
+      //
+      // }
+      // else if (id == R.id.nav_manage) {
+      //
+      // }
+      // else if (id == R.id.nav_share) {
+      //
+      // }
+      // else if (id == R.id.nav_send) {
+      //
+      // }
 
       drawer.closeDrawer(GravityCompat.START);
       return true;
