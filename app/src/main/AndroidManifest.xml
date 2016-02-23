@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kakapo.goodpic">
 
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:name=".application.App"
         android:allowBackup="false"
@@ -24,5 +27,4 @@
             android:value="3ab3093ab66e66af222a1137ec06c9f2ffa25785" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

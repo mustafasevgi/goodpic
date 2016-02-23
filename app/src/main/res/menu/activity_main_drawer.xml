@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/categories" >
+    <item android:title="@string/categories">
         <menu>
             <item
                 android:id="@+id/fashion"
-                android:title="fashion" />
+                android:title="@string/fashion" />
             <item
                 android:id="@+id/nature"
-                android:title="nature" />
+                android:title="@string/nature" />
             <item
                 android:id="@+id/backgrounds"
-                android:title="backgrounds" />
+                android:title="@string/backgrounds" />
             <item
                 android:id="@+id/science"
-                android:title="science" />
+                android:title="@string/science" />
             <item
                 android:id="@+id/education"
-                android:title="education" />
+                android:title="@string/education" />
             <item
                 android:id="@+id/people"
-                android:title="people" />
+                android:title="@string/people" />
             <item
                 android:id="@+id/feelings"
-                android:title="feelings" />
+                android:title="@string/feelings" />
             <item
                 android:id="@+id/religion"
-                android:title="religion" />
+                android:title="@string/religion" />
         </menu>
     </item>
 

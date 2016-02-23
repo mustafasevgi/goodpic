@@ -16,4 +16,28 @@ public class MainResponseBean {
    private List<Photo> hits;
    @SerializedName("total")
    private long        total;
+
+   public int getTotalHints() {
+      return totalHints;
+   }
+
+   public void setTotalHints(int totalHints) {
+      this.totalHints = totalHints;
+   }
+
+   public List<Photo> getHits() {
+      return hits;
+   }
+
+   public void setHits(List<Photo> hits) {
+      this.hits = hits;
+   }
+
+   public long getTotal() {
+      return total;
+   }
+
+   public void setTotal(long total) {
+      this.total = total;
+   }
 }

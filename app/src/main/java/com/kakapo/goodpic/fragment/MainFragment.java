@@ -38,6 +38,12 @@ public class MainFragment extends BaseFragment {
       viewPager = (ViewPager) view.findViewById(R.id.viewpager);
       MainPagerAdapter adapter = new MainPagerAdapter(getChildFragmentManager(), activity);
       viewPager.setAdapter(adapter);
+      viewPager.setOffscreenPageLimit(2);
+   }
+
+   @Override
+   public void onActivityCreated(Bundle savedInstanceState) {
+      super.onActivityCreated(savedInstanceState);
       if (activity instanceof MainActivity)
          ((MainActivity) activity).tabs.setupWithViewPager(viewPager);
    }

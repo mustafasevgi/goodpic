@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
  * Created by mustafasevgi on 15/02/16.
  */
 public class Photo {
+   @SerializedName("previewWidth")
+   private int    previewWidth;
    @SerializedName("previewHeight")
    private int    previewHeight;
    @SerializedName("largeImageURL")
@@ -35,6 +37,14 @@ public class Photo {
    private String type;
    @SerializedName("user")
    private String user;
+
+   public int getPreviewWidth() {
+      return previewWidth;
+   }
+
+   public void setPreviewWidth(int previewWidth) {
+      this.previewWidth = previewWidth;
+   }
 
    public int getPreviewHeight() {
       return previewHeight;

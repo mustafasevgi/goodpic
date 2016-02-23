@@ -6,6 +6,14 @@
 
     <string name="action_settings">Settings</string>
     <string name="categories">KATEGORİLER</string>
+    <string name="fashion">Moda</string>
+    <string name="nature">Doğa</string>
+    <string name="backgrounds">Arka Plan</string>
+    <string name="science">Bilim</string>
+    <string name="education">Eğitim</string>
+    <string name="people">İnsanlar</string>
+    <string name="feelings">Duygular</string>
+    <string name="religion">Bölgeler</string>
     <string-array name="tab_titles">
         <item>POPULER</item>
         <item>YENI EKLENENLER</item>

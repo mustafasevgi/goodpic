@@ -20,8 +20,9 @@
     <style name="toolbarToggle">
         <item name="android:layout_width">@dimen/toolbar_button_size</item>
         <item name="android:layout_height">@dimen/toolbar_button_size</item>
-        <item name="android:padding">@dimen/halfsize</item>
-        <item name="android:layout_margin">@dimen/halfsize</item>
+        <item name="android:padding">@dimen/size_8</item>
+        <item name="android:layout_margin">@dimen/size_8</item>
     </style>
 
+    <style name="wallpaperStyle" parent="@android:style/Theme.Wallpaper" />
 </resources>

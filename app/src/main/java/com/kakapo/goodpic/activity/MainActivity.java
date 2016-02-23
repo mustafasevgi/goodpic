@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.kakapo.goodpic.R;
 import com.kakapo.goodpic.fragment.MainFragment;
+import com.kakapo.goodpic.utils.Tools;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
    private DrawerLayout drawer;
@@ -39,7 +40,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-
       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
       fab.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
       if (savedInstanceState == null) {
          replaceFragment(this, R.id.main_container, new MainFragment(), MainFragment.TAG, false);
       }
+      Tools.getCurrentWallpaper(this);
    }
 
    @Override
@@ -78,23 +79,18 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
       if (!drawer.isDrawerOpen(GravityCompat.START)) {
          drawer.openDrawer(GravityCompat.START);
       }
+
    }
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
-      // Inflate the menu; this adds items to the action bar if it is present.
-      // getMenuInflater().inflate(R.menu.main, menu);
       return true;
    }
 
    @Override
    public boolean onOptionsItemSelected(MenuItem item) {
-      // Handle action bar item clicks here. The action bar will
-      // automatically handle clicks on the Home/Up button, so long
-      // as you specify a parent activity in AndroidManifest.xml.
       int id = item.getItemId();
 
-      // noinspection SimplifiableIfStatement
       if (id == R.id.action_settings) {
          return true;
       }
@@ -108,9 +104,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
       // Handle navigation view item clicks here.
       int id = item.getItemId();
 
-      // if (id == R.id.nav_camera) {
-      // Handle the camera action
-      // }
+      if (id == R.id.nature) {
+         // Handle the camera action
+      }
       // else if (id == R.id.nav_gallery) {
       //
       // }

@@ -1,8 +1,11 @@
 
 package com.kakapo.goodpic.fragment;
 
+import java.util.List;
+
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -10,14 +13,25 @@ import android.view.View;
 import com.kakapo.goodpic.Adapter.MainRecyclerAdapter;
 import com.kakapo.goodpic.R;
 import com.kakapo.goodpic.activity.BaseActivity;
+import com.kakapo.goodpic.application.App;
+import com.kakapo.goodpic.constants.AppConstant;
+import com.kakapo.goodpic.listener.EndlessScrollListener;
+import com.kakapo.goodpic.model.Photo;
+import com.kakapo.goodpic.presenter.MainPresenter;
+import com.kakapo.goodpic.presenter.MainPresenterImpl;
+import com.kakapo.goodpic.view.MainView;
 
 /**
  * Created by mustafasevgi on 13/02/16.
  */
-public class AllWallPapersFragment extends BaseFragment {
-   private RecyclerView               recyclerView;
-   private StaggeredGridLayoutManager manager;
-   private BaseActivity               activity;
+public class AllWallPapersFragment extends BaseFragment implements MainView, SwipeRefreshLayout.OnRefreshListener {
+   private SwipeRefreshLayout    refreshLayout;
+   private BaseActivity          activity;
+   private MainPresenter         mainPresenter;
+   private int                   position = AppConstant.TAB_POPULAR;
+   private MainRecyclerAdapter   adapter;
+   private EndlessScrollListener scrollListener;
+   private int                   page     = 0;
 
    @Override
    public int getLayoutResourceId() {
@@ -41,12 +55,67 @@ public class AllWallPapersFragment extends BaseFragment {
    }
 
    @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      Bundle bundle = getArguments();
+      if (bundle != null) {
+         position = bundle.getInt("position");
+      }
+      mainPresenter = new MainPresenterImpl(this);
+   }
+
+   @Override
    public void onViewCreated(View view, Bundle savedInstanceState) {
       super.onViewCreated(view, savedInstanceState);
-      recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-      manager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+      refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
+      RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+      StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(AppConstant.COLOUMN_COUNT,
+                                                                          StaggeredGridLayoutManager.VERTICAL);
       recyclerView.setLayoutManager(manager);
-      MainRecyclerAdapter adapter = new MainRecyclerAdapter(activity);
+      adapter = new MainRecyclerAdapter(activity, App.photoList);
       recyclerView.setAdapter(adapter);
+      mainPresenter.getPhotos(position, page);
+      refreshLayout.setOnRefreshListener(this);
+      scrollListener = new EndlessScrollListener(activity, manager) {
+         @Override
+         public void onLoadMore() {
+            page++;
+            mainPresenter.getPhotos(position, page);
+         }
+      };
+      recyclerView.addOnScrollListener(scrollListener);
+   }
+
+   @Override
+   public void setItems(List<Photo> list) {
+      App.photoList.addAll(list);
+      adapter.notifyDataSetChanged();
+   }
+
+   @Override
+   public void emptyMode() {
+
+   }
+
+   @Override
+   public void showProgress() {
+      refreshLayout.setRefreshing(true);
+   }
+
+   @Override
+   public void dismissProgress() {
+      refreshLayout.setRefreshing(false);
+   }
+
+   @Override
+   public void onDefaultAlert(String message) {
+
+   }
+
+   @Override
+   public void onRefresh() {
+      scrollListener.setPreviousTotal();
+      page = 0;
+      mainPresenter.getPhotos(position, page);
    }
 }
