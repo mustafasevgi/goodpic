@@ -1,4 +1,3 @@
-
 package com.kakapo.goodpic.fragment;
 
 import android.os.Bundle;
@@ -13,13 +12,13 @@ import android.view.ViewGroup;
  * Created by mustafasevgi on 12/02/16.
  */
 public abstract class BaseFragment extends Fragment {
-   @LayoutRes
-   public abstract int getLayoutResourceId();
+    @LayoutRes
+    public abstract int getLayoutResourceId();
 
-   @Nullable
-   @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-      View view = LayoutInflater.from(getContext()).inflate(getLayoutResourceId(), container, false);
-      return view;
-   }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = LayoutInflater.from(getContext()).inflate(getLayoutResourceId(), container, false);
+        return view;
+    }
 }

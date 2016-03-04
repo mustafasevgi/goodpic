@@ -8,7 +8,7 @@ import com.kakapo.goodpic.model.Photo;
 /**
  * Created by mustafasevgi on 16/02/16.
  */
-public interface OnFinishedListener {
+public interface MainPageListener {
    void onFinished(List<Photo> list);
 
    void empty();

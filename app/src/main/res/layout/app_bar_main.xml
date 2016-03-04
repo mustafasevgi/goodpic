@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:tabGravity="fill"
-            app:tabMode="fixed" />
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="scrollable" />
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_dialog_email"
+        android:visibility="gone" />
 
 </android.support.design.widget.CoordinatorLayout>

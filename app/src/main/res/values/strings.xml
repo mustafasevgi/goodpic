@@ -15,9 +15,10 @@
     <string name="feelings">Duygular</string>
     <string name="religion">Bölgeler</string>
     <string-array name="tab_titles">
-        <item>POPULER</item>
-        <item>YENI EKLENENLER</item>
-        <item>EDITORUN TAVSIYESI</item>
+        <item>KATEGORİLER</item>
+        <item>POPÜLER</item>
+        <item>YENİ EKLENENLER</item>
+        <item>EDITORUN TAVSİYESİ</item>
     </string-array>
     <string-array name="categories">
         <item name="fashon">fashion</item>

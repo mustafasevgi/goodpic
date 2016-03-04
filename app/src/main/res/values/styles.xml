@@ -24,5 +24,14 @@
         <item name="android:layout_margin">@dimen/size_8</item>
     </style>
 
-    <style name="wallpaperStyle" parent="@android:style/Theme.Wallpaper" />
+    <style name="FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/size_16</item>
+        <item name="android:src">@drawable/ic_download_24dp</item>
+        <item name="borderWidth">0dp</item>
+        <item name="elevation">6dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+        <item name="rippleColor">@android:color/white</item>
+    </style>
 </resources>
