@@ -21,13 +21,13 @@ public class DetailPresenterImpl implements DetailPresenter, PhotoDetailListener
 
     @Override
     public void getPhoto(String photoId, Photo photo) {
-        if (photo != null) {
-
-        } else {
-            if (detailView != null) {
+        if (detailView != null) {
+            if (photo != null) {
+                detailView.successPhoto(photo);
+            } else {
                 detailView.showProgress();
+                mainInteractor.serviceGetPhoto(photoId, this);
             }
-            mainInteractor.serviceGetPhoto(photoId, this);
         }
     }
 

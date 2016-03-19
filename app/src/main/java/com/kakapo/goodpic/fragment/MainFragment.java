@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.kakapo.goodpic.Adapter.MainPagerAdapter;
+import com.kakapo.goodpic.adapter.MainPagerAdapter;
 import com.kakapo.goodpic.R;
 import com.kakapo.goodpic.activity.BaseActivity;
 import com.kakapo.goodpic.activity.MainActivity;

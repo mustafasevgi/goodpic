@@ -1,5 +1,7 @@
 package com.kakapo.goodpic.presenter;
 
+import java.util.List;
+
 import android.content.Intent;
 
 import com.kakapo.goodpic.activity.BaseActivity;
@@ -9,8 +11,6 @@ import com.kakapo.goodpic.interactor.MainInteractorImpl;
 import com.kakapo.goodpic.listener.MainPageListener;
 import com.kakapo.goodpic.model.Photo;
 import com.kakapo.goodpic.view.MainView;
-
-import java.util.List;
 
 /**
  * Created by mustafasevgi on 16/02/16.
@@ -27,6 +27,7 @@ public class MainPresenterImpl implements MainPresenter, MainPageListener {
     @Override
     public void onItemClicked(BaseActivity activity, int position, Photo photo, String photoId) {
         Intent intent = DetailActivity.getIntent(activity, position, photoId);
+        DetailActivity.setPhoto(photo);
         activity.startActivity(intent);
     }
 

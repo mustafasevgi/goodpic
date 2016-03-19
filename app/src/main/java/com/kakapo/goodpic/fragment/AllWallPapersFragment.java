@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
-import com.kakapo.goodpic.Adapter.MainRecyclerAdapter;
+import com.kakapo.goodpic.adapter.MainRecyclerAdapter;
 import com.kakapo.goodpic.R;
 import com.kakapo.goodpic.activity.BaseActivity;
 import com.kakapo.goodpic.application.App;

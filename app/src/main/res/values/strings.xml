@@ -15,7 +15,6 @@
     <string name="feelings">Duygular</string>
     <string name="religion">Bölgeler</string>
     <string-array name="tab_titles">
-        <item>KATEGORİLER</item>
         <item>POPÜLER</item>
         <item>YENİ EKLENENLER</item>
         <item>EDITORUN TAVSİYESİ</item>

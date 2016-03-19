@@ -21,8 +21,8 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
-                android:id="@+id/image"
+            <com.kakapo.goodpic.custom_view.SquareSimpleDraweeImageView
+                android:id="@+id/simpledraweeview"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:fitsSystemWindows="true"

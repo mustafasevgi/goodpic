@@ -13,7 +13,7 @@ import com.kakapo.goodpic.model.Photo;
  * Created by mustafasevgi on 14/02/16.
  */
 public class DetailActivity extends BaseActivity {
-    private Photo photo;
+    private static Photo photo;
 
     public static Intent getIntent(BaseActivity activity, int position, String photoId) {
         Intent intent = new Intent(activity, DetailActivity.class);
@@ -22,8 +22,8 @@ public class DetailActivity extends BaseActivity {
         return intent;
     }
 
-    public void setPhoto(Photo photo) {
-        this.photo = photo;
+    public static void setPhoto(Photo ph) {
+        photo = ph;
     }
 
     @Override
